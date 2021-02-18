@@ -19,12 +19,12 @@ function App() {
           color: 'green'
         }}>
         <p>Hello World!</p>
-        <p>{a}</p>
-        <p>{a+b}</p>
-        <p>{c}</p>
-        <p>{d}</p>
-        <p>{flag && 'True'}</p>
-        <p>{i ? 'True' : 'False'}</p>
+        <p>{ a }</p>
+        <p>{ a+b }</p>
+        <p>{ c }</p>
+        <p>{ d }</p>
+        <p>{ flag && 'True' }</p>
+        <p>{ i ? 'True' : 'False' }</p>
         <a
           className="App-link"
           href="https://reactjs.org"
