@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { count, length } from './number';
 
 const flag = true;
 const i = false;
@@ -25,6 +26,7 @@ function App() {
         <p>{ d }</p>
         <p>{ flag && 'True' }</p>
         <p>{ i ? 'True' : 'False' }</p>
+        <p> count * length = { count*length }</p>
         <a
           className="App-link"
           href="https://reactjs.org"
