@@ -1,5 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
+import { count, length } from './number';
+
+const flag = true;
+const i = false;
+const a = 5;
+const b = 7;
+const c = undefined;
+const d = null;
 
 function App() {
   return (
@@ -8,8 +16,17 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
-        </p>
+        </p style {{
+          color: 'green'
+        }}>
         <p>Hello World!</p>
+        <p>{ a }</p>
+        <p>{ a+b }</p>
+        <p>{ c }</p>
+        <p>{ d }</p>
+        <p>{ flag && 'True' }</p>
+        <p>{ i ? 'True' : 'False' }</p>
+        <p> count * length = { count*length }</p>
         <a
           className="App-link"
           href="https://reactjs.org"
