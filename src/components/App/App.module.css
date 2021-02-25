@@ -1,0 +1,10 @@
+.wrap {
+  margin:auto;
+  width: 300px;
+}
+
+.title {
+  font-family: Helvetica;
+  font-size: 28px;
+  text-align: center;
+}
