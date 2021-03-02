@@ -4,7 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import styles from'./InputItem.module.css';
 
 
-const InputItem = () => (<div>
+
+const InputItem = () => (<div className={styles.input}>
   <TextField
     id="outlined-search"
     label="Добавить новую задачу"
