@@ -17,11 +17,17 @@ const ItemList = ({ items, onClickDone }) => (
       {items.map(item => (
         <ListItem classname={styles.item} key={item.value}>
           <Checkbox
+            checked={item.isDone}
             name="checkedB"
             color="primary"
-            onClick={() => onClickDone(item.isDone)}
+            onClick={() => onClickDone(item.id)}
            />
-            <ListItemText><Item value={item.value} isDone={item.isDone} onClickDone={onClickDone} /></ListItemText>
+            <ListItemText><Item
+              value={item.value}
+              isDone={item.isDone}
+              id={item.id}
+              onClickDone={onClickDone} />
+            </ListItemText>
             <ListItemSecondaryAction className={styles.delete}>
               <IconButton aria-label="delete">
                 <DeleteIcon />
