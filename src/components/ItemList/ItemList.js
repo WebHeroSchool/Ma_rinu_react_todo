@@ -11,7 +11,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-const ItemList = ({ items, onClickDone }) => (
+const ItemList = ({ items, onClickDone, onClickDelete }) => (
   <div className={styles.list}>
     <List>
       {items.map(item => (
@@ -26,10 +26,14 @@ const ItemList = ({ items, onClickDone }) => (
               value={item.value}
               isDone={item.isDone}
               id={item.id}
-              onClickDone={onClickDone} />
+              onClickDone={onClickDone}
+            />
             </ListItemText>
             <ListItemSecondaryAction className={styles.delete}>
-              <IconButton aria-label="delete">
+              <IconButton
+                aria-label="delete"
+                onClick = {() => onClickDelete(item.id)}
+              >
                 <DeleteIcon />
               </IconButton>
             </ListItemSecondaryAction>
@@ -39,12 +43,3 @@ const ItemList = ({ items, onClickDone }) => (
 </div>);
 
 export default ItemList;
-
-
-// const ItemList = ({ items }) => (<ul>
-//   {items.map(item => <li key={item.value}>
-//     <Item value={item.value} isDone={item.isDone} /></li>)}
-// </ul>);
-// <IconButton aria-label="Comments" >
-//             <DeleteForeverRoundedIcon />
-// </IconButton>

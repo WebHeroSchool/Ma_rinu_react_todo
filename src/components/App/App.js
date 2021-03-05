@@ -39,12 +39,28 @@ onClickDone = id => {
   this.setState({ items: newItemList });
 };
 
+onClickDelete = id => {
+    const newItemList = this.state.items.filter(item => {
+      const newItem = { ...item };
+
+      if (item.id !==id) {
+        return newItem;
+      }
+    });
+
+    this.setState({ items: newItemList });
+  };
+
   render() {
     return (
       <div className={styles.wrap}>
         <h1 className={styles.title}>Важные дела:</h1>
         <InputItem />
-        <ItemList items={this.state.items} onClickDone={this.onClickDone} />
+        <ItemList
+          items={this.state.items}
+          onClickDone={this.onClickDone}
+          onClickDelete={this.onClickDelete}
+        />
         <Footer count={3} />
       </div>);
   }
