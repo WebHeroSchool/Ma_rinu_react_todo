@@ -9,19 +9,19 @@ const todoItem = 'Написать новое приложение';
 class App extends React.Component {
   state = {
     items: [
-      {
-          value: 'Написать новое приложение',
-          isDone: true,
-          id: 1
-      },
-      {
-          value: 'Прописать props',
-          isDone: false,
-          id: 2
-       },
+      // {
+      //     value: 'Написать новое приложение',
+      //     isDone: false,
+      //     id: 1
+      // },
+      // {
+      //     value: 'Прописать props',
+      //     isDone: false,
+      //     id: 2
+      //  },
       {
           value: 'Сделать все дела',
-          isDone: true,
+          isDone: false,
           id: 3
       }
     ],

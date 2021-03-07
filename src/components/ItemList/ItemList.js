@@ -1,6 +1,8 @@
 import React from 'react';
 import Item from '../Item/Item';
 import styles from'./ItemList.module.css';
+import PropTypes from 'prop-types';
+
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -41,5 +43,18 @@ const ItemList = ({ items, onClickDone, onClickDelete }) => (
       ))}
     </List>
 </div>);
+
+ItemList.defaultProps = {
+  items: [{
+    value: "нет задачи",
+    isDone: false,
+  }]
+};
+
+ItemList.propTypes = {
+  items: PropTypes.array,
+  onClickDone: PropTypes.func,
+  onClickDelete: PropTypes.func
+};
 
 export default ItemList;
