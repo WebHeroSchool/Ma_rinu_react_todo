@@ -31,6 +31,7 @@ class Item extends React.Component {
 }
 
 Item.defaultProps = {
+  value: "нет задачи",
   isDone: false
 };
 
