@@ -1,0 +1,13 @@
+.wrap {
+  margin: 0;
+  width: 400px;
+  padding: 40px;
+}
+
+.title {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  font-family: Roboto;
+  font-size: 33px;
+  text-align: center;
+}
