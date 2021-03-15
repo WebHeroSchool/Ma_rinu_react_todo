@@ -11,3 +11,34 @@
   font-size: 33px;
   text-align: center;
 }
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Roboto;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.mail {
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: #000;
+  display: flex;
+  align-items: center;
+}
+
+.phone {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.insta {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}

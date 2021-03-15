@@ -46,7 +46,8 @@ class About extends React.Component {
 			<div className={styles.wrap}>
 			  <div>
 				  <h1 className={styles.title}>{ isLoading ? <CircularProgress /> : 'Мои репозитории:' }</h1>
-				  <h2 className={styles.text}>{this.state.login}</h2>
+					<h2 className={styles.text1}>Марина Михайлова</h2>
+					<h2 className={styles.text2}>login: {this.state.login}</h2>
 				</div>
 				<img
 					className={styles.avatar}
