@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
-import styles from'./App.module.css';
+import styles from './App.module.css';
+import Logo from './img/logo.svg'
 
 import Todo from '../Todo/Todo';
 import About from '../About/About';
@@ -18,6 +19,7 @@ const App = () =>
           <Link to='/todo' className={styles.link}><MenuItem>Дела</MenuItem></Link>
           <Link to='/contacts' className={styles.link}><MenuItem>Контакты</MenuItem></Link>
         </MenuList>
+        <img src={Logo} className={styles.logo} />
       </Card>
       <Card className={styles.content}>
         <Route path='/' exact component={About} />

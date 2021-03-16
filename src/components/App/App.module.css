@@ -12,6 +12,7 @@
 }
 
 .sidebar {
+  position: relative;
   padding-top: 40px;
   padding-bottom: 40px;
   grid-area: sidebar;
@@ -27,4 +28,11 @@
   grid-template-areas: 'sidebar ... content content';
   margin:auto;
   width: 600px;
+}
+
+.logo {
+  position: absolute;
+  bottom: 15px;
+  width: 85%;
+  margin: 53px 10px 10px 7px;
 }

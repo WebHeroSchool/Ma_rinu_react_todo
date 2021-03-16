@@ -6,8 +6,39 @@
 
 .title {
   margin-top: 10px;
-  margin-bottom: 40px;
+  margin-bottom: 25px;
   font-family: Roboto;
   font-size: 33px;
+  text-align: center;
+}
+
+.text1 {
+  margin-bottom: 10px;
+  font-family: Roboto;
+  font-size: 23px;
+  text-align: center;
+}
+
+.text2 {
+  margin-bottom: 35px;
+  font-family: Roboto;
+  font-size: 18px;
+  text-align: center;
+}
+
+.avatar {
+  margin-bottom: 35px;
+  height: 150px;
+  border-radius: 100px;
+  left: 50%;
+  position: relative;
+  transform: translate(-50%);
+}
+
+.repo__id {
+  margin-left: 60px;
+  margin-right: 60px;
+  font-family: Roboto;
+  font-size: 15px;
   text-align: center;
 }
