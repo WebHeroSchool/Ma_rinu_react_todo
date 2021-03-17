@@ -1,7 +1,9 @@
 import React from 'react';
 import styles from './About.module.css';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Pagination from '@material-ui/lab/Pagination';
 import { Octokit } from '@octokit/rest';
+
 
 const octokit = new Octokit();
 
@@ -9,7 +11,11 @@ class About extends React.Component {
 	state = {
 		isLoading: true,
 		repoList: [],
-		fetchFailure: false
+		fetchFailure: false,
+		pageLimit: 3,
+    countPages: 0,
+    currentPage: 0,
+    repoPageList: []
 	}
 
 	componentDidMount() {
@@ -22,6 +28,12 @@ class About extends React.Component {
 				login: data[0].owner.login,
 				avatarUrl: data[0].owner.avatar_url
 			});
+
+			this.setState({
+			  repoPageList: this.state.repoList.slice(0, this.state.pageLimit),
+			  countPages: Math.ceil(this.state.repoList.length / this.state.pageLimit)
+			});
+
 		}).catch(err => {
 			this.setState({
 				fetchFailure: true,
@@ -32,8 +44,15 @@ class About extends React.Component {
 	  })
 	}
 
+	onChangePagination(event, value) {
+    this.setState({
+      currentPage: value,
+      repoPageList: this.state.repoList.slice((value - 1) * this.state.pageLimit, ((value - 1) * this.state.pageLimit + this.state.pageLimit))
+    });
+	}
+
 	render() {
-		const { isLoading, repoList, fetchFailure } = this.state;
+		const { isLoading, repoList, fetchFailure, repoPageList, countPages } = this.state;
 
 		if (this.state.fetchFailure) {
 			return (<div className={styles.wrap}>
@@ -59,6 +78,12 @@ class About extends React.Component {
 						<a href={repo.html_url} target='_blank'>{repo.name}</a>
 					</li>))}
 				</ol>}
+				<div className={styles.pagination}>
+				  <Pagination
+					  count={countPages}
+						color="primary"
+						onChange={this.onChangePagination.bind(this)} />
+				</div>
 			</div>
 		);
 	}

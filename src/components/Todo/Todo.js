@@ -6,36 +6,22 @@ import styles from'./Todo.module.css';
 
 const Todo = () => {
   const initialState = {
-    items: [
-      {
-          value: 'Написать новое приложение',
-          isDone: false,
-          id: 1
-      },
-      {
-          value: 'Прописать props',
-          isDone: false,
-          id: 2
-       },
-      {
-          value: 'Сделать все дела',
-          isDone: false,
-          id: 3
-      }
-    ],
-    count: 3
+    items: JSON.parse(localStorage.getItem('items')) || [],
+    filter: 'all'
   };
 
   const [items,setItems] = useState(initialState.items);
   const [count,setCount] = useState(initialState.count);
+  const [filter, setFilter] = useState(initialState.filter);
+	let itemsFilter;
 
-    useEffect( () => {
-      console.log('update');
-    });
 
-    useEffect( () => {
-      console.log('mount');
-    }, []);
+  useEffect(() => {
+    localStorage.setItem('items', JSON.stringify(items));
+  });
+
+  const itemActive = (items.filter((item) => item.isDone === true)).length;
+  const itemDone = (items.filter((item) => item.isDone === false)).length;
 
     const onClickDone = id => {
       const newItemList = items.map(item => {
@@ -69,6 +55,18 @@ const onClickDelete = id => {
    setCount(count => count + 1);
   };
 
+  const onClickFilter = filtered => setFilter(filtered);
+  	switch (filter) {
+  			case 'done':
+  					itemsFilter = items.filter(item => !item.isDone);
+  					break;
+  			case 'active':
+  					itemsFilter = items.filter(item => item.isDone);
+  					break;
+  			default:
+  					itemsFilter = items;
+  	}
+
 return (
   <div className={styles.wrap}>
     <h1 className={styles.title}>Важные дела:</h1>
@@ -77,8 +75,14 @@ return (
       items={items}
       onClickDone={onClickDone}
       onClickDelete={onClickDelete}
+      items={itemsFilter}
     />
-    <Footer count={items.filter(item => !item.isDone).length} />
+    <Footer count={items.filter(item => !item.isDone).length}
+      filtered={filter}
+      itemActive={itemActive}
+      itemDone={itemDone}
+      onClickFilter={onClickFilter}
+     />
   </div>);
  };
 

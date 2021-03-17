@@ -42,3 +42,9 @@
   font-size: 15px;
   text-align: center;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+}
